@@ -11,10 +11,11 @@ class Auth extends Model
 
     protected $fillable = [
 
-        'firstName',
-        'lastName',
-        'dateOfBirth',
-        'heigth',
+        'name' , 
+        'description' , 
+        'main_image' , 
+        'relase_date' , 
+        'repo_link' , 
 
     ];
 }

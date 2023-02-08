@@ -29,3 +29,22 @@
 </body>
 
 </html>
+
+
+<style lang="scss">
+    .container-img{
+        width: calc(100% / 3);
+
+    }
+    img{
+        width: 100%;
+    }
+
+    .container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+</style>

@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Auth;
 
-class ProjectSeeder extends Seeder
+class AuthSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,6 @@ class ProjectSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Auth::factory()->count(10)->create();
     }
 }
