@@ -32,19 +32,23 @@
 
 
 <style lang="scss">
-    .container-img{
-        width: calc(100% / 3);
+    .container-img {
+        width: calc(100% / 3 - 20px);
+        margin: 20px 10px;
+        border: 1px solid black;
+        padding: 20px;
+
 
     }
-    img{
+
+    img {
         width: 100%;
     }
 
-    .container{
+    .container {
         width: 100%;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
     }
-
 </style>
