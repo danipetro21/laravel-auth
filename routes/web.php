@@ -18,23 +18,28 @@ use App\Http\Controllers\MainController;
 
 // rotta non protetta
 
-Route :: get('/', [MainController :: class, 'home'])
-    -> name('home');
+Route::get('/', [MainController::class, 'home'])
+    ->name('home');
 
 // rotta protetta
 
-Route::get('/logged', [MainController :: class, 'logged']) -> middleware(['auth', 'verified']) -> name('logged');
+Route::get('/logged', [MainController::class, 'logged'])->middleware(['auth', 'verified'])->name('logged');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-// --- HOME
+// --- STORE | CREATE PROTECTED
+Route::get('/auth/create', [MainController::class, 'authCreate'])
+    ->middleware(['auth', 'verified'])->name('auth.create');
+Route::post('/auth/store', [MainController::class, 'authStore'])
+    ->middleware(['auth', 'verified'])->name('auth.store');
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';
