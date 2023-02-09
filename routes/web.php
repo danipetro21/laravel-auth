@@ -53,4 +53,8 @@ Route::get('/auth/edit/{auth}', [MainController::class, 'authEdit'])
 Route::post('/auth/update/{auth}', [MainController::class, 'authUpdate'])
     ->middleware(['auth', 'verified'])->name('auth.update');
 
+// --- SHOW
+Route::get('/auth/show/{auth}', [MainController::class, 'authShow'])
+    ->name('auth.show');
+
 require __DIR__ . '/auth.php';

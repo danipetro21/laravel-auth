@@ -78,4 +78,12 @@ class MainController extends Controller
         $auth->update($data);
         return redirect()->route('home');
     }
+
+
+    ///---- SHOW
+    
+    public function authShow(Auth $auth){
+
+        return view('pages.show', compact('auth'));
+    }
 }
