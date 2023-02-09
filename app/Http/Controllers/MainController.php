@@ -43,8 +43,39 @@ class MainController extends Controller
             'repo_link' => 'required|string'
         ]);
 
-        $auth = Auth :: create($data);     
+        $auth = Auth::create($data);
         $auth->save();
         return redirect()->route('logged');
+    }
+
+    // --- DELETE
+
+    public function authDelete(Auth $auth)
+    {
+
+        $auth->delete();
+        return redirect()->route('logged');
+    }
+
+    // --- EDIT
+
+    public function authEdit(Auth $auth)
+    {
+        return view('pages.edit', compact('auth'));
+    }
+
+    // --- UPDATE
+
+    public function authUpdate(Request $request, Auth $auth)
+    {
+        $data = $request->validate([
+            'name' => 'required|string|max:64',
+            'description' => 'required|string',
+            'main_image' => 'required|string',
+            'relase_date' => 'required|date',
+            'repo_link' => 'required|string'
+        ]);
+        $auth->update($data);
+        return redirect()->route('home');
     }
 }

@@ -42,4 +42,15 @@ Route::post('/auth/store', [MainController::class, 'authStore'])
     ->middleware(['auth', 'verified'])->name('auth.store');
 
 
+// --- DELETE
+Route::get('/auth/delete/{auth}', [MainController::class, 'authDelete'])
+    ->middleware(['auth', 'verified'])->name('auth.delete');
+
+//--- EDIT
+Route::get('/auth/edit/{auth}', [MainController::class, 'authEdit'])
+    ->middleware(['auth', 'verified'])->name('auth.edit');
+//--- UPDATE
+Route::post('/auth/update/{auth}', [MainController::class, 'authUpdate'])
+    ->middleware(['auth', 'verified'])->name('auth.update');
+
 require __DIR__ . '/auth.php';

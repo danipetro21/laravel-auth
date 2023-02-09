@@ -14,6 +14,11 @@
             <img src="{{ $auth->main_image }}" alt="">
             
             <a href="{{ $auth -> repo_link }}">REPO LINK</a>
+
+
+            <a href="{{ route('auth.delete', $auth)}}">DELETE</a>
+
+            <a href="{{ route('auth.edit', $auth)}}">EDIT</a>
         </div>
         @endforeach
     </div>
