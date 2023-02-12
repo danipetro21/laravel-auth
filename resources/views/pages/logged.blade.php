@@ -11,7 +11,9 @@
             <h3>NOME PROGETTO: {{ $auth -> name }}</h3>
 
            
-            <img src="{{ $auth->main_image }}" alt="">
+            <img src="{{ asset('storage/' . $auth -> main_image) }}">
+
+
             
             <a href="{{ $auth -> repo_link }}">REPO LINK</a>
 

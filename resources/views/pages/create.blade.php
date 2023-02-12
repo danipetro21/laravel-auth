@@ -5,7 +5,7 @@
 <h1>Inserisci un nuovo progetto</h1>
 {{-- @include('components.errors') --}}
 
-<form action="{{ route('auth.store') }}" method="POST">
+<form action="{{ route('auth.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <label for="name">Name</label>
     <input type="text" name="name">
@@ -15,8 +15,9 @@
     <input type="textarea" name="description">
     <br>
     <br>
-    <label for="main_image">Url Main Image</label>
-    <input type="text" name="main_image">
+
+    <input type="file" name="main_image">
+
     <br>
     <br>
     <label for="relase_date">Relase Date</label>

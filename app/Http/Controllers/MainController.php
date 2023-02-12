@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Auth;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 class MainController extends Controller
 {
 
@@ -38,10 +38,14 @@ class MainController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:64',
             'description' => 'required|string',
-            'main_image' => 'required|string',
+            'main_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'relase_date' => 'required|date',
             'repo_link' => 'required|string'
         ]);
+
+        // per rendere l'immagine persistente
+        $img_path = Storage::put('uploads', $data['main_image']);
+        $data['main_image'] = $img_path;
 
         $auth = Auth::create($data);
         $auth->save();
@@ -71,10 +75,14 @@ class MainController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:64',
             'description' => 'required|string',
-            'main_image' => 'required|string',
+            'main_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'relase_date' => 'required|date',
             'repo_link' => 'required|string'
         ]);
+
+        $img_path = Storage::put('uploads', $data['main_image']);
+        $data['main_image'] = $img_path;
+
         $auth->update($data);
         return redirect()->route('home');
     }

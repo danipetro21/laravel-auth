@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string('name' , 64);
             $table->text('description') -> nullable();
-            $table->string('main_image')-> unique();
+            $table->string('main_image')-> default('project-img.jpg');
             $table->date('relase_date');
             $table->string('repo_link') -> unique();
 

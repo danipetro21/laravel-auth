@@ -19,7 +19,6 @@ class AuthFactory extends Factory
         return [
             'name' => fake() -> word(), 
             'description' => fake() -> paragraph(2), 
-            'main_image' => fake() -> imageUrl(640, 480, 'animals', true) , 
             'relase_date' => fake() -> dateTime(), 
             'repo_link' => fake() -> url(), 
         ];

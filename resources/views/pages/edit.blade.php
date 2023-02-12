@@ -5,7 +5,7 @@
 <h1>Aggiorna il progetto</h1>
 {{-- @include('components.errors') --}}
 
-<form action="{{ route('auth.update', $auth) }}" method="POST">
+<form action="{{ route('auth.update', $auth) }}" method="POST" enctype="multipart/form-data">
     @csrf
     <label for="name">Name</label>
     <input type="text" name="name" value="{{ $auth -> name }}">
@@ -15,8 +15,7 @@
     <input type="textarea" name="description" value="{{ $auth -> description }}">
     <br>
     <br>
-    <label for="main_image">Url Main Image</label>
-    <input type="text" name="main_image" value="{{ $auth -> main_image }}">
+    <input type="file" name="main_image">
     <br>
     <br>
     <label for="relase_date">Relase Date</label>
